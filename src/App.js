@@ -1,6 +1,6 @@
 import './App.css';
 import { HashRouter } from 'react-router-dom';
-import { Header } from './components';
+import { Header, Widget } from './components';
 
 const App = () => {
     return (
@@ -8,6 +8,7 @@ const App = () => {
             <div className='app'>
                 <div className='app-wrapper'>
                     <Header />
+                    <Widget />
                 </div>
             </div>
         </HashRouter>
