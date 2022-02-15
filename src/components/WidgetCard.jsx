@@ -5,7 +5,6 @@ const WidgetCard = ({
     current,
     forecast
 }) => {
-    console.log(forecast);
     return (
         <div className="widget">
             <div className="widget-wrapper">
@@ -15,7 +14,7 @@ const WidgetCard = ({
                 </div>
                 <div className="widget-weather-current">
                     <div className="weather-condition">
-                        <span className="current-temp">{current.temp_c}°C</span>
+                        <span className="current-temp">{current.temp_c}&#176;C</span>
                         <img className="condition-icon" src={current.condition.icon} alt="icon" />
                         <span className="condition-text">{current.condition.text}</span>
                     </div>
@@ -41,7 +40,7 @@ const WidgetCard = ({
                                         </span>
                                         <img src={day.condition.icon} alt="icon" />
                                         <span>{day.condition.text}</span>
-                                        <span>{day.avgtemp_c}°C</span>
+                                        <span>{day.avgtemp_c}&#176;C</span>
                                     </div>
                                 )
                             }
