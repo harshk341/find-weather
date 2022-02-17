@@ -62,7 +62,7 @@ const weather = (state = {
                 loading: false,
                 location: location(payload.data.location),
                 current: current(payload.data.current),
-                forecastday: forecastday(payload.data.forecastday)
+                forecastday: forecastday(payload.data.forecast)
             }
         default:
             break;
