@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { WidgetCard, Loading } from '.';
+import { WidgetCard, Loading, Error } from '.';
 import connectToStore from './HOCs/connetToStore';
 import { getWeatherDataFor } from '../managers/getWeatherDataFor';
 import { initQuery } from '../actions/QueryActions';
@@ -8,6 +8,7 @@ import { IP_URL } from '../constants/Urls';
 
 const Widget = ({
     loading,
+    error,
     location,
     current,
     forecastday,
@@ -33,15 +34,14 @@ const Widget = ({
     return (
         <div className="app-content">
             <div className="app-content-wrapper">
-                <div className="app-widget">
-                    {
-                        !loading && <WidgetCard
-                            location={location}
-                            current={current}
-                            forecast={forecastday}
-                        />
-                    }
-                </div>
+                <WidgetCard
+                    loading={loading}
+                    location={location}
+                    current={current}
+                    forecast={forecastday}
+                    {...error}
+                />
+                <Error {...error} />
                 <Loading loading={loading} />
             </div>
         </div>

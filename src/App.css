@@ -139,3 +139,14 @@
         -webkit-transform: rotate(360deg);
     }
 }
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.error-message {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+}

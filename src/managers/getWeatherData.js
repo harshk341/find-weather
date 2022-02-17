@@ -37,6 +37,15 @@ const forecastdayData = (weatherFor, weather) => {
     }
 }
 
+const errorData = (weatherFor, weather) => {
+    return !!weather[weatherFor] ? {
+        ...weather[weatherFor].error
+    } : {
+        code: null,
+        message: null
+    }
+}
+
 export const getWeatherData = (weather, query) => {
     const weatherFor = [WEATHER_FOR, query || 'default'].join('|');
 
@@ -45,6 +54,7 @@ export const getWeatherData = (weather, query) => {
         location: locationData(weatherFor, weather),
         current: currentData(weatherFor, weather),
         forecastday: forecastdayData(weatherFor, weather),
+        error: errorData(weatherFor, weather),
         weatherFor,
         query
     }

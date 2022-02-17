@@ -44,11 +44,23 @@ const forecastday = (state = {
     }
 }
 
+const error = (state ={
+    code: null,
+    message: null
+}) => {
+    return {
+        ...state,
+        code: state.code,
+        message: state.message
+    }
+}
+
 const weather = (state = {
     loading: false,
     location: location(),
     current: current(),
-    forecastday: forecastday()
+    forecastday: forecastday(),
+    error: error()
 }, { type, payload }) => {
     switch (type) {
         case WEATHER_REQUEST:
@@ -62,7 +74,8 @@ const weather = (state = {
                 loading: false,
                 location: location(payload.data.location),
                 current: current(payload.data.current),
-                forecastday: forecastday(payload.data.forecast)
+                forecastday: forecastday(payload.data.forecast),
+                error: error(payload.data.error)
             }
         default:
             break;
