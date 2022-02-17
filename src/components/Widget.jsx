@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { WidgetCard } from '.';
 import connectToStore from './HOCs/connetToStore';
 import { getWeatherDataFor } from '../managers/getWeatherDataFor';
+import { initQuery } from '../actions/QueryActions';
+import { IP_URL } from '../constants/Urls';
 
 const Widget = ({
     loading,
@@ -9,10 +11,15 @@ const Widget = ({
     current,
     forecastday,
     weatherFor,
-    query
+    query,
+    initQuery
 }) => {
 
-    console.log(query);
+    useEffect(() => {
+        
+        initQuery(IP_URL)
+
+    }, [initQuery]);
 
     return (
         <div className="app-content">
@@ -31,4 +38,4 @@ const Widget = ({
 
 export default connectToStore(Widget, (state) => ({
     ...getWeatherDataFor(state)
-}), {});
+}), { initQuery });
