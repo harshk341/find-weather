@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { WidgetCard } from '.';
+import { WidgetCard, Loading } from '.';
 import connectToStore from './HOCs/connetToStore';
 import { getWeatherDataFor } from '../managers/getWeatherDataFor';
 import { initQuery } from '../actions/QueryActions';
@@ -16,16 +16,16 @@ const Widget = ({
     initQuery,
     clientRequestForWeather
 }) => {
-    
-    
+
+
     useEffect(() => {
-        
+
         initQuery(IP_URL);
-        
+
     }, [initQuery]);
-    
+
     useEffect(() => {
-        
+
         clientRequestForWeather(weatherFor, query);
 
     }, [weatherFor, query]);
@@ -34,13 +34,15 @@ const Widget = ({
         <div className="app-content">
             <div className="app-content-wrapper">
                 <div className="app-widget">
-                    <WidgetCard
-                        loading={loading}
-                        location={location}
-                        current={current}
-                        forecast={forecastday}
-                    />
+                    {
+                        !loading && <WidgetCard
+                            location={location}
+                            current={current}
+                            forecast={forecastday}
+                        />
+                    }
                 </div>
+                <Loading loading={loading} />
             </div>
         </div>
     );

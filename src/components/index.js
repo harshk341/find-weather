@@ -4,3 +4,4 @@ export { default as WidgetCard } from './WidgetCard';
 export { default as Location } from './Location';
 export { default as Current } from './Current';
 export { default as Forecast } from './Forecast';
+export { default as Loading } from './Loading';
