@@ -26,6 +26,17 @@ const initQuery = () => dispatch => {
         const [key, value] = search.split('=');
         dispatch(queryChange(value));
     }
+
+    window.onpopstate = () => {
+        const hash = window.location.hash ? window.location.hash.slice(1) : '';
+        const search = hash.includes('?') ? hash.slice(hash.indexOf('?')) : '';
+        if (!search) {
+            dispatch(getQueryFromServer(IP_URL, dispatch));
+        } else {
+            const [key, value] = search.split('=');
+            dispatch(queryChange(value));
+        }
+    }
 }
 
 export {
