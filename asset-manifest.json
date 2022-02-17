@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/find-weather/static/css/main.ce3c0ba1.css",
+    "main.js": "/find-weather/static/js/main.6ad8de8b.js",
+    "static/js/787.4e2a168f.chunk.js": "/find-weather/static/js/787.4e2a168f.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/find-weather/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
+    "static/media/bootstrap-icons.woff2?": "/find-weather/static/media/bootstrap-icons.a13b815539b49de48d23.woff2",
+    "index.html": "/find-weather/index.html",
+    "main.ce3c0ba1.css.map": "/find-weather/static/css/main.ce3c0ba1.css.map",
+    "main.6ad8de8b.js.map": "/find-weather/static/js/main.6ad8de8b.js.map",
+    "787.4e2a168f.chunk.js.map": "/find-weather/static/js/787.4e2a168f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce3c0ba1.css",
+    "static/js/main.6ad8de8b.js"
+  ]
+}
