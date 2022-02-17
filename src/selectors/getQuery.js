@@ -1,0 +1,1 @@
+export const getQuery = state => state.query.query;

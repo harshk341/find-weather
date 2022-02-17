@@ -12,6 +12,8 @@ const Widget = ({
     query
 }) => {
 
+    console.log(query);
+
     return (
         <div className="app-content">
             <div className="app-content-wrapper">
