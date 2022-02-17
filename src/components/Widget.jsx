@@ -1,30 +1,32 @@
 import React from 'react';
-import { DATA as data } from '../rawData';
 import { WidgetCard } from '.';
+import connectToStore from './HOCs/connetToStore';
+import { getWeatherDataFor } from '../managers/getWeatherDataFor';
 
-const Widget = () => {
-
-    const renderCard = ({
-        location,
-        current,
-        forecast
-    }) => {
-        return <WidgetCard
-            location={location}
-            current={current}
-            forecast={forecast}
-        />
-    }
+const Widget = ({
+    loading,
+    location,
+    current,
+    forecastday,
+    weatherFor,
+    query
+}) => {
 
     return (
         <div className="app-content">
             <div className="app-content-wrapper">
                 <div className="app-widget">
-                    {renderCard(data)}
+                    <WidgetCard
+                        location={location}
+                        current={current}
+                        forecast={forecastday}
+                    />
                 </div>
             </div>
         </div>
     );
 }
 
-export default Widget;
+export default connectToStore(Widget, (state) => ({
+    ...getWeatherDataFor(state)
+}), {});

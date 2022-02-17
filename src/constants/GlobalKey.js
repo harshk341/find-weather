@@ -1,0 +1,1 @@
+export const WEATHER_FOR = 'WEATHER_FOR';
